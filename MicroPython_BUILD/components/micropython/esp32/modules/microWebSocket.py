@@ -25,7 +25,7 @@ class MicroWebSocket :
     _opCloseFrame  = 0x8
     _opPingFrame   = 0x9
     _opPongFrame   = 0xA
-    
+
     _msgTypeText   = 1
     _msgTypeBin    = 2
 
@@ -97,7 +97,7 @@ class MicroWebSocket :
 
     def _handshake(self, httpResponse) :
         try :
-            key = self._httpCli.GetRequestHeaders().get('Sec-WebSocket-Key', None)
+            key = self._httpCli.GetRequestHeaders().get('sec-webSocket-key', None)
             if key :
                 key += self._handshakeSign
                 r = sha1(key.encode()).digest()
